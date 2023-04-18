@@ -10,8 +10,8 @@ include_once("konfigurasi.php");
             $user = $_POST["txUSER"];
 
             $sql = "INSERT INTO tbuser(nama,email,user,passkey,iduser)VALUES('$nama','$email','$user'".md5($pass1)."','".md5($nama)."');";
-            $cnn = mysqli_connect(DBHOST,DBUSER,DBPASS,PORT,DBNAME) or die ("Lo ga bisa masuk");
-            $hasil = mysqli_query($cnn,$sql);
+            $cnn = mysqli_connect(DBHOST,DBUSER,DBPASS,DBNAME,PORT) or die ("Lo ga bisa masuk");
+            $hasil = mysqli_query($cnn.$sql);
             if($hasil){
                 $psn ="Registrasi berhasil,silahkan login kembali";
             }
